@@ -18,6 +18,17 @@ module.exports = (sequelize, DataTypes) => {
     unit_price: DataTypes.DOUBLE,
     quantity: DataTypes.INTEGER
   }, {
+    hooks: {
+      beforeCreate: (product) =>{
+        product.createdAt = new Date();
+        product.updatedAt = new Date();
+        return product;
+      },
+      beforeUpdate: (product) => {
+        product.updatedAt = new Date();
+        return product;
+      }
+    },
     sequelize,
     modelName: 'Product',
   });

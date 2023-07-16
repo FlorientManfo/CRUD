@@ -1,21 +1,20 @@
-const { Op } = require("sequelize");
+const {where, col, fn } = require("sequelize");
 
 module.exports = (model) => {
 
   class ProductController {
-
+    
     constructor(model) {
       this.model = model;
     }
 
-    create(req, res) {
+    create = (req, res) => {
       if (!req.body.name) {
         res.status(400).send({
           message: "Product's name can not be empty!",
         });
         return;
       }
-
       this.model
         .create(req.body)
         .then((data) => {
@@ -30,9 +29,14 @@ module.exports = (model) => {
         });
     }
 
-    getAll(req, res) {
+    getAll = (req, res) => {
+
+      const name = req.query.name;
+      
+      const option = name ? {name: where(fn('LOWER', col('name')), 'LIKE', `%${name}%`)}: null;
+
       this.model
-        .findCountAll()
+        .findAndCountAll({where: option})
         .then((data) => {
           res.send(data);
         })
@@ -45,26 +49,7 @@ module.exports = (model) => {
         });
     }
 
-    findByName(req, res) {
-      const name = req.body.name;
-
-      this.model
-        .findCountAll({
-          where: { name: { [Op.like]: `%{name}%` } },
-        })
-        .then((data) => {
-          res.send(data);
-        })
-        .catch((err) => {
-          console.log(err);
-
-          res.status(500).send({
-            message: `An error occurred while looking for product named ${name}`,
-          });
-        });
-    }
-
-    update(req, res) {
+    update = (req, res) => {
       const id = req.params.id;
 
       this.model
@@ -91,11 +76,11 @@ module.exports = (model) => {
         });
     }
 
-    delete(req, res) {
+    delete = (req, res) => {
       const id = req.params.id;
 
       this.model
-        .destry({
+        .destroy({
           where: { id: id },
         })
         .then((num) => {
@@ -119,5 +104,5 @@ module.exports = (model) => {
     }
   }
 
-  return ProductController(model)
+  return new ProductController(model)
 };

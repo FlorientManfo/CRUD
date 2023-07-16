@@ -1,11 +1,10 @@
-module.exports = (app) =>{
-    const db = require('../models/index');
-    
-    app.set('base', '/api/v1');
-    app.get('/', (req, res) => {
-        res.send({message: 'Welcome to this CRUD API ☻'});
-    });
+module.exports = (app, db) => {
+  
+  app.get("/", (req, res) => {
+    console.log("Hello");
+    res.json({ message: "Welcome to this CRUD API ☻" });
+  });
 
-    const productRouter = require('./product')(db.product);
-    app.use('/product', productRouter);
-}
+  const productRouter = require("./product")(db.Product);
+  app.use("/product", productRouter);
+};
