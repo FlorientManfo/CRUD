@@ -3,6 +3,7 @@ const { Op } = require("sequelize");
 module.exports = (model) => {
 
   class ProductController {
+
     constructor(model) {
       this.model = model;
     }
@@ -117,6 +118,6 @@ module.exports = (model) => {
         });
     }
   }
-  
+
   return ProductController(model)
 };
