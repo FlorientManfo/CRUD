@@ -1,0 +1,22 @@
+{
+  "name": "crud_backend",
+  "version": "1.0.0",
+  "description": "an API for a CRUD project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Florient MANFO",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "sequelize": "^6.32.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "sequelize-cli": "^6.6.1"
+  }
+}
