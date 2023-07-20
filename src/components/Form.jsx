@@ -1,8 +1,10 @@
 import { React, useState, useReducer, useContext, useEffect } from "react";
 import { ProductContext } from "../context/ProductContext";
 import formReducer from "../hooks/form_reducer";
+import { useAlert } from "react-alert";
 
 const Form = () => {
+  const alert = useAlert();
   const { selectedProduct, setSelectedProduct, asyncCreate, asyncUpdate } =
     useContext(ProductContext);
   const [formData, setFormData] = useReducer(formReducer, {});
@@ -16,11 +18,10 @@ const Form = () => {
     e.preventDefault();
     if (formData.id) {
       asyncUpdate(formData);
-    } else if(formData.name && formData.unit_price && formData.quantity) {
+    } else if (formData.name && formData.unit_price && formData.quantity) {
       asyncCreate(formData);
-    }
-    else{
-      
+    } else {
+      alert.show("Form fields are empty", { type: "error" });
     }
     reset();
   };
