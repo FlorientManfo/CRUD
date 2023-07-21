@@ -1,0 +1,8 @@
+[submodule "crud_frontend"]
+	path = crud_frontend
+	url = https://github.com/FlorientManfo/CRUD.git
+	branch = frontend
+[submodule "crud_backend"]
+	path = crud_backend
+	url = https://github.com/FlorientManfo/CRUD.git
+	branch = backend
