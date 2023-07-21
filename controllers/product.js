@@ -18,7 +18,7 @@ module.exports = (model) => {
       this.model
         .create(req.body)
         .then((data) => {
-          res.send({message: `Product ${data.name} deleted successfully`});
+          res.send({message: `Product ${data.name} created successfully`});
         })
         .catch((err) => {
           console.log(err);
@@ -59,7 +59,7 @@ module.exports = (model) => {
         .then((num) => {
           if (num == 1) {
             res.send({
-              message: "Product update successfully.",
+              message: "Product updated successfully.",
             });
           } else {
             res.send({

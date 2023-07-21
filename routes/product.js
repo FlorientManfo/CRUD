@@ -4,8 +4,8 @@ module.exports = (model) => {
 
     router.get('/get', controller.getAll);
     router.post('/create', controller.create);
-    router.put('/update:id', controller.update);
-    router.delete('/delete:id', controller.delete);
+    router.put('/update/:id', controller.update);
+    router.delete('/delete/:id', controller.delete);
 
     return router;
 }
