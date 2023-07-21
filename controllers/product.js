@@ -18,7 +18,7 @@ module.exports = (model) => {
       this.model
         .create(req.body)
         .then((data) => {
-          res.send(data);
+          res.send({message: `Product ${data.name} deleted successfully`});
         })
         .catch((err) => {
           console.log(err);
