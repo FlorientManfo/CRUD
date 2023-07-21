@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App.jsx";
 import "./index.css";
 
@@ -12,15 +12,16 @@ const options = {
   offset: "30px",
   transition: "scale",
   containerStyle: {
-    textTransform: 'none',
+    textTransform: "none",
     fontSize: "10px",
   },
 };
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.render(
   <React.StrictMode>
     <AlertProvider template={AlertTemplate} {...options}>
       <App />
     </AlertProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );

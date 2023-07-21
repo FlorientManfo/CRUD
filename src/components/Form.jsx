@@ -53,6 +53,7 @@ const Form = () => {
               onChange={setFormData}
               value={formData.name || ""}
               name="name"
+              id="name"
               className="bg-gray-200 p-2 rounded-md w-full"
             />
           </label>
@@ -61,6 +62,7 @@ const Form = () => {
           <label htmlFor="unit_price" className="flex flex-col gap-3 w-full">
             <h3>Unit price</h3>
             <input
+              id="unit_price"
               type="number"
               onChange={setFormData}
               name="unit_price"
@@ -81,6 +83,7 @@ const Form = () => {
               value={formData.quantity || ""}
               onChange={setFormData}
               name="quantity"
+              id="quantity"
               className="bg-gray-200 p-2 rounded-md w-full"
             />
           </label>
