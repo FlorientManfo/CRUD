@@ -11,9 +11,9 @@ The project has the following features :
 
 # Installation
 
-  ## Yo need 
-  > * Node: from package management
-  > * Git a versioning tools to clone the remote repository
+  ## You need 
+  > * Node JS: for package management
+  > * Git: a versioning tool to clone the remote repository
   > * VS Code as code editor or any other one
   >
   ## Steps
